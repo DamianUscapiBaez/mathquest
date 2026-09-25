@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MathQuest: El Reino Perdido — Una aventura algebraica.">
+    <title>MathQuest | El Reino Perdido</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <main id="juego">
+
+        <!-- ==================================================
+             PORTADA PRINCIPAL
+        ================================================== -->
+        <section id="portada" class="pantalla activa">
+
+            <div class="portada-bg" aria-hidden="true"></div>
+            <div class="portada-glow glow-1" aria-hidden="true"></div>
+            <div class="portada-glow glow-2" aria-hidden="true"></div>
+            <div class="portada-glow glow-3" aria-hidden="true"></div>
+
+            <div class="portada-particulas" aria-hidden="true">
+                <span class="particula"></span><span class="particula"></span>
+                <span class="particula"></span><span class="particula"></span>
+                <span class="particula"></span><span class="particula"></span>
+                <span class="particula"></span><span class="particula"></span>
+                <span class="particula"></span><span class="particula"></span>
+                <span class="particula"></span><span class="particula"></span>
+                <span class="particula"></span><span class="particula"></span>
+                <span class="particula"></span><span class="particula"></span>
+                <span class="particula"></span><span class="particula"></span>
+            </div>
+
+            <div class="portada-runas" aria-hidden="true">
+                <span class="runa" style="--d:0s;  --x:12%; --y:22%">✦</span>
+                <span class="runa" style="--d:2s;  --x:85%; --y:18%">✧</span>
+                <span class="runa" style="--d:4s;  --x:8%;  --y:70%">✧</span>
+                <span class="runa" style="--d:1s;  --x:90%; --y:65%">✦</span>
+                <span class="runa" style="--d:3s;  --x:48%; --y:8%">✦</span>
+                <span class="runa" style="--d:5s;  --x:60%; --y:90%">✧</span>
+            </div>
+
+            <div class="hud-portada">
+                <div class="capitulo-portada">
+                    <span class="capitulo-icono">✦</span>
+                    <div>
+                        <small>CAPÍTULO I</small>
+                        <strong>EL LLAMADO</strong>
+                    </div>
+                </div>
+
+                <button id="btn-audio" class="btn-audio" type="button" aria-label="Activar o desactivar música">
+                    🔇 <span>Música</span>
+                </button>
+            </div>
+
+            <div class="portada-contenido">
+
+                <div class="portada-info">
+                    <span class="portada-kicker">
+                        <span class="kicker-line"></span>
+                        UNA AVENTURA MATEMÁTICA
+                        <span class="kicker-line"></span>
+                    </span>
+
+                    <header class="logo">
+                        <h1>MATHQUEST</h1>
+                        <div class="logo-subtitulo">
+                            <span></span>
+                            <h2>EL REINO PERDIDO</h2>
+                            <span></span>
+                        </div>
+                    </header>
+
+                    <p class="descripcion">
+                        Los <strong>Cristales del Conocimiento</strong> han desaparecido.<br>
+                        El reino necesita un nuevo <strong>guardián</strong>.
+                    </p>
+
+                    <div class="cristales-portada">
+                        <div class="cristal-item cristal-algebra">
+                            <div class="cristal-gema">
+                                <span class="gema-shine"></span>
+                                <span class="gema-icono">⚙️</span>
+                            </div>
+                            <div class="cristal-texto">
+                                <span>ÁLGEBRA</span>
+                                <small>PERDIDO</small>
+                            </div>
+                        </div>
+
+                        <div class="cristal-item cristal-equilibrio">
+                            <div class="cristal-gema">
+                                <span class="gema-shine"></span>
+                                <span class="gema-icono">⚖️</span>
+                            </div>
+                            <div class="cristal-texto">
+                                <span>EQUILIBRIO</span>
+                                <small>PERDIDO</small>
+                            </div>
+                        </div>
+
+                        <div class="cristal-item cristal-factores">
+                            <div class="cristal-gema">
+                                <span class="gema-shine"></span>
+                                <span class="gema-icono">📐</span>
+                            </div>
+                            <div class="cristal-texto">
+                                <span>LUZ</span>
+                                <small>PERDIDO</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu">
+                        <button id="btn-comenzar" class="btn btn-principal" type="button">
+                            <span class="btn-shine"></span>
+                            <span class="btn-icono">▶</span>
+                            <span class="btn-texto">
+                                COMENZAR AVENTURA
+                                <small>Inicia tu viaje por Arithmia</small>
+                            </span>
+                        </button>
+
+                        <button id="btn-leyenda" class="btn btn-secundario" type="button">
+                            <span class="btn-shine"></span>
+                            <span>📜</span> DESCUBRIR LA LEYENDA
+                        </button>
+                    </div>
+
+                    <div class="portada-pasos">
+                        <span>EXPLORA</span><i></i>
+                        <span>RESUELVE</span><i></i>
+                        <span>RECUPERA</span><i></i>
+                    </div>
+                </div>
+
+                <div class="portada-nova" id="portada-nova-parallax">
+
+                    <div class="nova-magic">
+                        <div class="magic-ring magic-ring-1"></div>
+                        <div class="magic-ring magic-ring-2"></div>
+                        <div class="magic-ring magic-ring-3"></div>
+                        <div class="magic-symbols">
+                            <span>✦</span><span>△</span><span>✦</span><span>○</span>
+                            <span>✦</span><span>◇</span><span>✦</span><span>□</span>
+                        </div>
+                    </div>
+
+                    <div class="nova-aura"></div>
+                    <div class="nova-halo"></div>
+
+                    <div class="nova-sparkles" aria-hidden="true">
+                        <span></span><span></span><span></span>
+                        <span></span><span></span><span></span>
+                    </div>
+
+                    <img id="nova-portada-sprite" class="nova-hero" src="assets/images/nova/nova-portada.png"
+                        alt="Nova, guardiana del conocimiento">
+
+                    <div class="nova-sombra"></div>
+
+                    <div class="nova-mensaje">
+                        <span class="msg-nombre">✦ NOVA</span>
+                        <p>El reino te estaba esperando...</p>
+                        <div class="msg-flecha"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="portada-vignette-bottom" aria-hidden="true"></div>
+        </section>
+
+
+        <!-- ==================================================
+             MODAL LEYENDA
+        ================================================== -->
+        <div id="modal-leyenda" class="modal oculto" role="dialog" aria-modal="true">
+            <div class="modal-contenido">
+                <button id="cerrar-leyenda" class="cerrar" type="button" aria-label="Cerrar">✕</button>
+
+                <h2>📜 La leyenda de Arithmia</h2>
+
+                <p>Durante siglos, tres <strong>Cristales del Conocimiento</strong> protegieron el Reino de Arithmia.
+                </p>
+                <p>Cada cristal contenía una parte de la sabiduría matemática que mantenía el reino en equilibrio.</p>
+                <p>Pero una noche, una misteriosa fuerza fragmentó su poder.</p>
+                <p>Desde entonces, antiguos lugares han cerrado sus puertas y el Gran Castillo permanece sellado.</p>
+                <p>Solo quien supere los desafíos de las tres regiones podrá recuperar los cristales y restaurar el
+                    reino.</p>
+            </div>
+        </div>
+
+
+        <!-- ==================================================
+             INTRO NOVA
+        ================================================== -->
+        <section id="intro" class="pantalla">
+            <div class="escena-nova">
+
+                <div class="personaje">
+                    <div class="personaje-halo"></div>
+                    <img id="nova-sprite" src="assets/images/nova/nova-normal.png" data-expresion="normal" alt="Nova">
+                </div>
+
+                <div class="dialogo">
+                    <span class="nombre-personaje">✦ NOVA</span>
+                    <p id="texto-dialogo">…</p>
+
+                    <div class="dialogo-footer">
+                        <div id="indicador-dialogo" class="indicador-dialogo" aria-hidden="true"></div>
+                        <button id="btn-siguiente-dialogo" type="button" class="btn-dialogo">Continuar ➜</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==================================================
+             MAPA DEL REINO
+        ================================================== -->
+        <section id="mapa" class="pantalla">
+
+            <div class="mapa-fondo" aria-hidden="true"></div>
+
+            <div class="mapa-particulas" aria-hidden="true">
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+            </div>
+
+            <header class="mapa-header">
+                <div class="mapa-titulo">
+                    <span class="mapa-kicker">✦ REINO DE ARITHMIA ✦</span>
+                    <h2>Mapa de las Regiones</h2>
+                    <p class="mapa-subtitulo">Elige tu próximo destino, guardián.</p>
+                </div>
+
+                <div class="mapa-hud">
+                    <div class="hud-puntos">
+                        <span>⭐</span>
+                        <strong id="puntos-numero">0</strong>
+                        <small>PTS</small>
+                    </div>
+                    <div id="contador-cristales" class="contador-cristales">
+                        <span>💎</span>
+                        <strong><span id="cristales-numero">0</span>/3</strong>
+                    </div>
+                </div>
+            </header>
+
+            <div class="mapa-nodos">
+
+                <button id="mundo-1" class="nodo-mundo nodo-1 disponible" type="button">
+                    <span class="nodo-glow"></span>
+                    <span class="nodo-anillo"></span>
+                    <span class="nodo-icono">🏙️</span>
+                    <span class="nodo-badge">I</span>
+                    <div class="nodo-info">
+                        <strong>CIUDAD ALGEBRAICA</strong>
+                        <small>Expresiones algebraicas y factorización</small>
+                        <span class="nodo-estado">DISPONIBLE</span>
+                    </div>
+                </button>
+
+                <button id="mundo-2" class="nodo-mundo nodo-2 bloqueado" type="button" disabled>
+                    <span class="nodo-glow"></span>
+                    <span class="nodo-anillo"></span>
+                    <span class="nodo-icono">⚖️</span>
+                    <span class="nodo-badge">II</span>
+                    <div class="nodo-info">
+                        <strong>TEMPLO DEL EQUILIBRIO</strong>
+                        <small>Ecuaciones e inecuaciones</small>
+                        <span class="nodo-estado">🔒 BLOQUEADO</span>
+                    </div>
+                </button>
+
+                <button id="mundo-3" class="nodo-mundo nodo-3 bloqueado" type="button" disabled>
+                    <span class="nodo-glow"></span>
+                    <span class="nodo-anillo"></span>
+                    <span class="nodo-icono">📐</span>
+                    <span class="nodo-badge">III</span>
+                    <div class="nodo-info">
+                        <strong>TORRE DE LAS SOMBRAS</strong>
+                        <small>Geometría y trigonometría</small>
+                        <span class="nodo-estado">🔒 BLOQUEADO</span>
+                    </div>
+                </button>
+
+                <button id="castillo" class="nodo-mundo nodo-castillo bloqueado" type="button" disabled>
+                    <span class="nodo-glow"></span>
+                    <span class="nodo-anillo"></span>
+                    <span class="nodo-icono">🏰</span>
+                    <span class="nodo-badge">★</span>
+                    <div class="nodo-info">
+                        <strong>GRAN CASTILLO</strong>
+                        <small>Restaura el reino</small>
+                        <span class="nodo-estado">🔒 3 cristales necesarios</span>
+                    </div>
+                </button>
+
+            </div>
+
+            <footer class="mapa-footer">
+                <div class="mapa-leyenda">
+                    <span class="leyenda-item"><i class="leyenda-dot disponible"></i> Disponible</span>
+                    <span class="leyenda-item"><i class="leyenda-dot completado"></i> Completado</span>
+                    <span class="leyenda-item"><i class="leyenda-dot bloqueado"></i> Bloqueado</span>
+                </div>
+            </footer>
+
+        </section>
+
+
+        <!-- ==================================================
+             PORTADA DE MUNDO
+        ================================================== -->
+        <section id="mundo-portada" class="pantalla">
+
+            <div class="mp-bg" aria-hidden="true"></div>
+            <div class="mp-overlay" aria-hidden="true"></div>
+
+            <div class="mp-particulas" aria-hidden="true">
+                <span></span><span></span><span></span>
+                <span></span><span></span><span></span>
+                <span></span><span></span><span></span>
+                <span></span><span></span><span></span>
+            </div>
+
+            <button class="mp-volver" id="mp-volver" type="button">← Volver al mapa</button>
+
+            <div class="mp-contenido">
+
+                <div class="mp-columna-izq">
+                    <span class="mp-kicker" id="mp-kicker">✦ MUNDO I ✦</span>
+
+                    <h1 class="mp-titulo" id="mp-titulo">TEMPLO DEL EQUILIBRIO</h1>
+
+                    <div class="mp-separador">
+                        <span></span>
+                        <i>✦</i>
+                        <span></span>
+                    </div>
+
+                    <p class="mp-descripcion" id="mp-descripcion">
+                        Un lugar ancestral donde las ecuaciones gobiernan el equilibrio del reino.
+                    </p>
+
+                    <div class="mp-temas">
+                        <div class="mp-tema">
+                            <span class="tema-icono" id="mp-tema-1-icono">⚖️</span>
+                            <div>
+                                <strong id="mp-tema-1-titulo">Ecuaciones lineales</strong>
+                                <small id="mp-tema-1-desc">Despeja la incógnita paso a paso</small>
+                            </div>
+                        </div>
+                        <div class="mp-tema">
+                            <span class="tema-icono" id="mp-tema-2-icono">📐</span>
+                            <div>
+                                <strong id="mp-tema-2-titulo">Inecuaciones</strong>
+                                <small id="mp-tema-2-desc">Domina la regla del signo</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mp-recompensa">
+                        <span class="recompensa-cristal" id="mp-cristal">💎</span>
+                        <div>
+                            <small>RECOMPENSA</small>
+                            <strong id="mp-recompensa-nombre">Cristal del Equilibrio</strong>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-principal mp-btn-entrar" id="mp-entrar" type="button">
+                        <span class="btn-shine"></span>
+                        <span class="btn-icono">⚔</span>
+                        <span class="btn-texto">
+                            ENTRAR EN EL DESAFÍO
+                            <small>5 preguntas · 3 vidas</small>
+                        </span>
+                    </button>
+                </div>
+
+                <div class="mp-columna-der">
+                    <div class="mp-nova-halo"></div>
+                    <img id="mp-nova-sprite" class="mp-nova-img" src="assets/images/nova/nova-normal.png" alt="Nova">
+
+                    <div class="mp-nova-burbuja">
+                        <span class="burbuja-nombre">✦ NOVA</span>
+                        <p id="mp-nova-frase">Concéntrate en el equilibrio: lo que haces a un lado, lo haces al otro.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mp-vignette" aria-hidden="true"></div>
+        </section>
+
+
+        <!-- ==================================================
+             MINIJUEGO
+        ================================================== -->
+        <section id="minijuego" class="pantalla">
+
+            <div class="mj-bg" aria-hidden="true"></div>
+            <div class="mj-overlay" aria-hidden="true"></div>
+
+            <header class="mj-header">
+                <button id="mj-salir" class="mj-salir" type="button">← Salir</button>
+
+                <div class="mj-info">
+                    <span id="mj-mundo-icono" class="mj-mundo-icono">⚖️</span>
+                    <div>
+                        <small id="mj-mundo-categoria">MUNDO 1</small>
+                        <strong id="mj-mundo-nombre">Templo del Equilibrio</strong>
+                    </div>
+                </div>
+
+                <div class="mj-hud">
+                    <div class="mj-vidas" id="mj-vidas" aria-label="Vidas">
+                        <span>❤</span><span>❤</span><span>❤</span>
+                    </div>
+                    <div class="mj-puntos">⭐ <span id="mj-puntos">0</span></div>
+                </div>
+            </header>
+
+            <div class="mj-progress">
+                <div class="mj-progress-fill" id="mj-progress-fill"></div>
+                <span class="mj-progress-label" id="mj-progress-label">Pregunta 1 / 5</span>
+            </div>
+
+            <div class="mj-cuerpo">
+                <div class="mj-nova">
+                    <div class="mj-nova-halo"></div>
+                    <img id="mj-nova-sprite" src="assets/images/nova/nova-normal.png" alt="Nova">
+                    <div class="mj-nova-burbuja" id="mj-nova-burbuja">¡Vamos allá!</div>
+                </div>
+
+                <div class="mj-tarjeta">
+                    <span class="mj-pregunta-tag" id="mj-pregunta-tag">PREGUNTA</span>
+                    <h2 id="mj-pregunta" class="mj-pregunta">…</h2>
+
+                    <div id="mj-respuestas" class="mj-respuestas"></div>
+                    <div id="mj-feedback" class="mj-feedback"></div>
+                </div>
+            </div>
+
+            <div class="mj-footer">
+                <div class="mj-progreso-cristal">
+                    <span class="cristal-vacio" id="mj-cristal-indicador">💎</span>
+                    <span class="texto-progreso">Cristal en juego</span>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==================================================
+             LECCIÓN PASO A PASO
+        ================================================== -->
+        <div id="mj-leccion" class="mj-leccion oculto" role="dialog" aria-modal="true">
+            <div class="mj-leccion-panel">
+
+                <div class="mj-leccion-header">
+                    <span class="mj-leccion-icono">💡</span>
+                    <div>
+                        <small>APRENDAMOS JUNTOS</small>
+                        <h3 id="mj-leccion-titulo">Cómo se resuelve</h3>
+                    </div>
+                </div>
+
+                <div class="mj-leccion-pregunta">
+                    <span class="mj-leccion-tag">PREGUNTA</span>
+                    <p id="mj-leccion-pregunta-texto">…</p>
+                </div>
+
+                <div class="mj-leccion-pasos-titulo">
+                    <span>📘</span> Paso a paso
+                </div>
+                <ol id="mj-leccion-pasos" class="mj-leccion-pasos"></ol>
+
+                <div class="mj-leccion-respuesta">
+                    <span>RESPUESTA CORRECTA</span>
+                    <strong id="mj-leccion-respuesta-texto">…</strong>
+                </div>
+
+                <button id="mj-leccion-cerrar" class="btn btn-principal btn-leccion" type="button">
+                    <span class="btn-shine"></span>
+                    <span class="btn-icono">✓</span>
+                    <span>ENTENDIDO, CONTINUAR</span>
+                </button>
+
+            </div>
+        </div>
+
+
+        <!-- ==================================================
+             MODAL — ¡CRISTAL OBTENIDO!
+        ================================================== -->
+        <div id="modal-cristal" class="modal-cristal oculto" role="dialog" aria-modal="true"
+            aria-labelledby="mc-titulo">
+
+            <div class="mc-rayos" aria-hidden="true"></div>
+            <div class="mc-particulas" aria-hidden="true">
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+            </div>
+
+            <div class="mc-panel">
+
+                <span class="mc-kicker">✦ RECOMPENSA OBTENIDA ✦</span>
+
+                <div class="mc-gema-wrap">
+                    <div class="mc-halo"></div>
+                    <div class="mc-gema" id="mc-gema">💎</div>
+                    <div class="mc-sparkles" aria-hidden="true">
+                        <span></span><span></span><span></span>
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+
+                <h2 class="mc-titulo" id="mc-titulo">¡CRISTAL OBTENIDO!</h2>
+
+                <p class="mc-nombre" id="mc-nombre-cristal">Cristal del Equilibrio</p>
+
+                <p class="mc-mensaje" id="mc-mensaje">
+                    El poder del Templo del Equilibrio ha sido restaurado.
+                </p>
+
+                <div class="mc-stats">
+                    <div class="mc-stat">
+                        <span>⭐</span>
+                        <strong id="mc-puntos">0</strong>
+                        <small>PTS GANADOS</small>
+                    </div>
+                    <div class="mc-stat">
+                        <span>💎</span>
+                        <strong><span id="mc-cristales">1</span>/3</strong>
+                        <small>CRISTALES</small>
+                    </div>
+                </div>
+
+                <button id="mc-continuar" class="btn btn-principal mc-btn" type="button">
+                    <span class="btn-shine"></span>
+                    <span class="btn-icono">✦</span>
+                    <span class="btn-texto">
+                        CONTINUAR AVENTURA
+                        <small>Regresa al mapa del reino</small>
+                    </span>
+                </button>
+
+            </div>
+        </div>
+
+
+        <!-- ==================================================
+             ✨ CINEMÁTICA FINAL — NOVA Y LOS 3 CRISTALES ✨
+        ================================================== -->
+        <div id="victoria-cinematica" class="victoria-cinematica oculto" role="dialog" aria-modal="true"
+            aria-labelledby="vc-titulo">
+
+            <div class="vc-fondo-rays" aria-hidden="true"></div>
+            <div class="vc-estrellas" aria-hidden="true">
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+            </div>
+            <div class="vc-flash" aria-hidden="true"></div>
+
+            <div class="vc-escenario">
+
+                <div class="vc-anillos" aria-hidden="true">
+                    <div class="vc-anillo vc-anillo-1"></div>
+                    <div class="vc-anillo vc-anillo-2"></div>
+                    <div class="vc-anillo vc-anillo-3"></div>
+                </div>
+
+                <div class="vc-cristales-orbita" aria-hidden="true">
+                    <span class="vc-cristal vc-cristal-1">💎</span>
+                    <span class="vc-cristal vc-cristal-2">💎</span>
+                    <span class="vc-cristal vc-cristal-3">💎</span>
+                </div>
+
+                <div class="vc-nova-halo" aria-hidden="true"></div>
+                <div class="vc-nova-wrap">
+                    <img id="vc-nova-img" class="vc-nova-img" src="assets/images/nova/nova-sorprendida.png" alt="Nova">
+                    <div class="vc-nova-destello" aria-hidden="true"></div>
+                </div>
+
+                <div class="vc-dialogo">
+                    <span class="vc-nombre">✦ NOVA</span>
+                    <p id="vc-texto" class="vc-texto"></p>
+                    <span class="vc-cursor" aria-hidden="true"></span>
+                </div>
+
+                <h2 id="vc-titulo" class="vc-titulo">¡LOS TRES CRISTALES ESTÁN COMPLETOS!</h2>
+
+                <button id="vc-continuar" class="btn btn-principal vc-btn" type="button">
+                    <span class="btn-shine"></span>
+                    <span class="btn-icono">🏰</span>
+                    <span class="btn-texto">
+                        ENTRAR AL GRAN CASTILLO
+                        <small>Restaura el Reino de Arithmia</small>
+                    </span>
+                </button>
+
+            </div>
+        </div>
+
+
+        <!-- ==================================================
+             VICTORIA
+        ================================================== -->
+        <section id="victoria" class="pantalla">
+
+            <div class="victoria-rayos" aria-hidden="true"></div>
+            <div class="victoria-particulas" aria-hidden="true">
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+            </div>
+
+            <div class="victoria-contenido">
+
+                <div class="victoria-cristales">
+                    <span class="v-cristal v-cristal-1">💎</span>
+                    <span class="v-cristal v-cristal-2">💎</span>
+                    <span class="v-cristal v-cristal-3">💎</span>
+                </div>
+
+                <span class="victoria-kicker">✦ EL REINO HA SIDO RESTAURADO ✦</span>
+                <h1 class="victoria-titulo">¡VICTORIA!</h1>
+
+                <p class="victoria-texto">
+                    Has recuperado los tres Cristales del Conocimiento
+                    y devuelto la luz a Arithmia.
+                </p>
+
+                <div class="victoria-stats">
+                    <div class="v-stat">
+                        <span>⭐</span>
+                        <strong id="v-puntos">0</strong>
+                        <small>PUNTOS</small>
+                    </div>
+                    <div class="v-stat">
+                        <span>💎</span>
+                        <strong>3</strong>
+                        <small>CRISTALES</small>
+                    </div>
+                    <div class="v-stat">
+                        <span>⚔</span>
+                        <strong id="v-aciertos">0</strong>
+                        <small>ACIERTOS</small>
+                    </div>
+                </div>
+
+                <button id="btn-reiniciar" class="btn btn-principal btn-reiniciar" type="button">
+                    <span class="btn-shine"></span>
+                    <span class="btn-icono">↻</span>
+                    <span>JUGAR DE NUEVO</span>
+                </button>
+
+            </div>
+        </section>
+
+    </main>
+
+    <audio id="musica-fondo" src="assets/audio/musica.mp3" loop preload="auto"></audio>
+    <audio id="sonido-click" src="assets/audio/click.mp3" preload="auto"></audio>
+    <audio id="sonido-cristal" src="assets/audio/cristal.mp3" preload="auto"></audio>
+    <audio id="sonido-acierto" src="assets/audio/acierto.mp3" preload="auto"></audio>
+    <audio id="sonido-error" src="assets/audio/error.mp3" preload="auto"></audio>
+
+    <script src="js/game.js"></script>
+
+</body>
+
+</html>
